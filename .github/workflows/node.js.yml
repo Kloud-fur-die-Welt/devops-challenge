@@ -68,15 +68,15 @@ jobs:
         uses: Azure/docker-login@v1
         with:
           # Container registry username
-          username: keboen@web.de
+          username: KloudfuerdieWeltCRmanual
           # Container registry password
-          password: eGm*wQ7:r/f]?I,Da{^:bp;@t0-=lqq3
+          password: nnGSphB5R0G3n8AlF=n68HOtYB1ux6O8
           # Container registry server url
           login-server: kloudfuerdieweltcrmanual.azurecr.io
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: ./application/${{ matrix.project }}
           file: application/${{ matrix.project }}/Dockerfile
           push: true
-          tags: ${{ matrix.project }}
+          tags: ${{ matrix.project }}:latest KloudfuerdieWeltCRmanual.azurecr/${{ matrix.project }}
