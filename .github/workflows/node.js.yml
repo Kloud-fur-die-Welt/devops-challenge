@@ -68,9 +68,9 @@ jobs:
         uses: Azure/docker-login@v1
         with:
           # Container registry username
-          username: KloudfuerdieWeltCRmanual
+          username: keboen@web.de
           # Container registry password
-          password: nnGSphB5R0G3n8AlF=n68HOtYB1ux6O8
+          password: eGm*wQ7:r/f]?I,Da{^:bp;@t0-=lqq3
           # Container registry server url
           login-server: kloudfuerdieweltcrmanual.azurecr.io
       - name: Build and push
