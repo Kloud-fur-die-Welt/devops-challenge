@@ -31,3 +31,19 @@ Die Applikation besteht im wesentlichen aus drei Seiten
 
 > Ihr könnt hier eure Dokumentation zu den Herausforderungen hinzufügen oder euch im Team auf eine eigene Dokumentations Struktur einigen
 
+Login per:
+
+az login
+az acr login --name KloudfuerdieWeltCRmanual 
+
+Taggen der Container:
+
+docker tag containername:version KloudfuerdieWeltCRmanual.azurecr/xyz
+
+Pushen eines Container:
+
+docker push KloudfuerdieWeltCRmanual.azurecr.io/xyz
+
+Pullen eines Container:
+
+docker pull KloudfuerdieWeltCRmanual.azurecr.io/xyz
