@@ -14,7 +14,7 @@ jobs:
     defaults:
       run: 
         shell: bash
-        working-directory: application
+        working-directory: application/${{ matrix.project }}
         
     runs-on: ubuntu-latest
 
@@ -30,7 +30,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-        cache-dependency-path: application/${{matrix.project}}/package-lock.json
+        cache-dependency-path: application/${{ matrix.project }}/package-lock.json
         cache: 'npm'
 
     - run: npm ci
