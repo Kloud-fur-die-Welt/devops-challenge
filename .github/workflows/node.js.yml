@@ -74,7 +74,7 @@ jobs:
       #    # The ACR tenant to use for login
           tenant: bfe3e775-4326-4a0a-92dc-b73064a9ce24
       #    # The ACR registry to use
-          registry: KloudfuerdieWeltCRmanual
+      #    registry: KloudfuerdieWeltCRmanual
       #    # The ACR repository to use
           repository: ${{ matrix.project }}
       - name: Build and push
