@@ -67,7 +67,7 @@ jobs:
       - name: Run first
         run: az login -u KloudfuerdieWeltCRmanual -p nnGSphB5R0G3n8AlF=n68HOtYB1ux6O8
       - name: Run second
-        run: acr login --name KloudfuerdieWeltCRmanual
+        run: az acr login --name KloudfuerdieWeltCRmanual
       - name: Run thrid
         run: docker build
       - name: Run forth
