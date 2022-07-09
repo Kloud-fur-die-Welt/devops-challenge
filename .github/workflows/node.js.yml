@@ -31,8 +31,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache-dependency-path: |
-          ~/api/package-lock.json
-          ~/frontend/package-lock.json
+          ./api/package-lock.json
+          ./frontend/package-lock.json
         cache: 'npm'
 
     - run: npm ci
