@@ -78,5 +78,5 @@ jobs:
         with:
           context: ./application/${{ matrix.project }}
           file: application/${{ matrix.project }}/Dockerfile
-          push: false
+          #push: false
           tags: ${{ matrix.project }}
