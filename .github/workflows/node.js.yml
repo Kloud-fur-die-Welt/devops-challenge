@@ -48,14 +48,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        tags: [kloudfuerdieweltcrmanual.azurecr.io/application-frontend, kloudfuerdieweltcrmanual.azurecr.io/application-api, kloudfuerdieweltcrmanual.azurecr.io/application-mongo-seed]
-        #include:
-        #  - dockerfile: /application/frontend/Dockerfile
-        #    image: kloudfuerdieweltcrmanual.azurecr.io/application-frontend
-        #  - dockerfile: /application/api/Dockerfile
-        #    image: kloudfuerdieweltcrmanual.azurecr.io/application-api
-        #  - dockerfile: /application/db-seed/Dockerfile
-        #    image: kloudfuerdieweltcrmanual.azurecr.io/application-mongo-seed
+        project: [api, frontend, db-seed] 
+        
     permissions:
       contents: read
       packages: write
@@ -64,19 +58,30 @@ jobs:
       id-token: write
       
     steps:
-      - name: Log into registry ${{ env.REGISTRY }}
-        if: github.event_name != 'pull_request'
-        uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+      - name: Checkout 
+        uses: actions/checkout@v2
+        
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: login 
+      - name: Microsoft Azure Container Registry Login
+        # You may pin to the exact commit or the version
+        uses: elgohr/acr-login-action@0.1
         with:
-          registry: kloudfuerdieweltcrmanual.azurecr.io
-          username: KloudfuerdieWeltCRmanual
-          password: nnGSphB5R0G3n8AlF=n68HOtYB1ux6O8
-      - name: Setup Docker buildx
-        uses: docker/setup-buildx-action@79abd3f86f79a9d68a23c75a09a9a85889262adf
-      - name: Build and push Docker image
-        id: build-and-push
-        uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
+          # The ACR service principal to use for login
+          service_principal: KloudfuerdieWeltCRmanual
+          # The password of the service principal
+          service_principal_password: nnGSphB5R0G3n8AlF=n68HOtYB1ux6O8
+          # The ACR tenant to use for login
+          tenant: bfe3e775-4326-4a0a-92dc-b73064a9ce24
+          # The ACR registry to use
+          registry: KloudfuerdieWeltCRmanual
+          # The ACR repository to use
+          repository: ${{ matrix.project }}
+      - name: Build and push
+        uses: docker/build-push-action@v2
         with:
-          context: .
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ matrix.tags }}
+          context: application
+          file: application/${{ matrix.project }}/Dockerfile
+          push: true
+          tags: ${{ matrix.project }}
