@@ -47,8 +47,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        tags: [kloudfuerdieweltcrmanual.azurecr.io/application-frontend, kloudfuerdieweltcrmanual.azurecr.io/application-api, kloudfuerdieweltcrmanual.azurecr.io/application-mongo-seed]
+      #matrix:
+        #tags: [kloudfuerdieweltcrmanual.azurecr.io/application-frontend, kloudfuerdieweltcrmanual.azurecr.io/application-api, kloudfuerdieweltcrmanual.azurecr.io/application-mongo-seed]
         #include:
         #  - dockerfile: /application/frontend/Dockerfile
         #    image: kloudfuerdieweltcrmanual.azurecr.io/application-frontend
