@@ -31,6 +31,8 @@ Die Applikation besteht im wesentlichen aus drei Seiten
 
 > Ihr könnt hier eure Dokumentation zu den Herausforderungen hinzufügen oder euch im Team auf eine eigene Dokumentations Struktur einigen
 
+## Azure und Docker
+
 Login per:
 
 az login
@@ -47,3 +49,14 @@ docker push KloudfuerdieWeltCRmanual.azurecr.io/xyz
 Pullen eines Container:
 
 docker pull KloudfuerdieWeltCRmanual.azurecr.io/xyz
+
+
+## Terraform 
+
+Initialisieren von Terraform:
+
+terraform init
+
+Erstellen/Anlegen der Ressourcen:
+
+terraform apply
