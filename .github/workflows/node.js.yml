@@ -64,24 +64,23 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: login 
-      - name: Microsoft Azure Container Registry Login
         # You may pin to the exact commit or the version
         uses: elgohr/acr-login-action@0.1
         with:
-          # The ACR service principal to use for login
+      #    # The ACR service principal to use for login
           service_principal: KloudfuerdieWeltCRmanual
-          # The password of the service principal
+      #    # The password of the service principal
           service_principal_password: nnGSphB5R0G3n8AlF=n68HOtYB1ux6O8
-          # The ACR tenant to use for login
+      #    # The ACR tenant to use for login
           tenant: bfe3e775-4326-4a0a-92dc-b73064a9ce24
-          # The ACR registry to use
-          registry: KloudfuerdieWeltCRmanual
-          # The ACR repository to use
+      #    # The ACR registry to use
+      #    registry: KloudfuerdieWeltCRmanual
+      #    # The ACR repository to use
           repository: ${{ matrix.project }}
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: application
+          context: ./application/${{ matrix.project }}
           file: application/${{ matrix.project }}/Dockerfile
           push: true
           tags: ${{ matrix.project }}
