@@ -73,8 +73,6 @@ jobs:
           password: nnGSphB5R0G3n8AlF=n68HOtYB1ux6O8
           # Container registry server url
           login-server: kloudfuerdieweltcrmanual.azurecr.io
-      - name: login
-        run: docker login
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
