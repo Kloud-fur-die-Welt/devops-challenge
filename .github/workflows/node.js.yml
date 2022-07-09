@@ -79,4 +79,4 @@ jobs:
           context: ./application/${{ matrix.project }}
           file: application/${{ matrix.project }}/Dockerfile
           push: true
-          tags: ${{ matrix.project }}:latest KloudfuerdieWeltCRmanual.azurecr/${{ matrix.project }}
+          tags: KloudfuerdieWeltCRmanual.azurecr/${{ matrix.project }}
