@@ -48,13 +48,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - dockerfile: /application/frontend/Dockerfile
-            image: kloudfuerdieweltcrmanual.azurecr.io/application-frontend
-          - dockerfile: /application/api/Dockerfile
-            image: kloudfuerdieweltcrmanual.azurecr.io/application-api
-          - dockerfile: /application/db-seed/Dockerfile
-            image: kloudfuerdieweltcrmanual.azurecr.io/application-mongo-seed
+        tags: [kloudfuerdieweltcrmanual.azurecr.io/application-frontend, kloudfuerdieweltcrmanual.azurecr.io/application-api, kloudfuerdieweltcrmanual.azurecr.io/application-mongo-seed]
+        #include:
+        #  - dockerfile: /application/frontend/Dockerfile
+        #    image: kloudfuerdieweltcrmanual.azurecr.io/application-frontend
+        #  - dockerfile: /application/api/Dockerfile
+        #    image: kloudfuerdieweltcrmanual.azurecr.io/application-api
+        #  - dockerfile: /application/db-seed/Dockerfile
+        #    image: kloudfuerdieweltcrmanual.azurecr.io/application-mongo-seed
     permissions:
       contents: read
       packages: write
@@ -78,4 +79,4 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ matrix.include.image }}
+          tags: ${{ matrix.tags }}
