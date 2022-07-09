@@ -81,7 +81,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: ./${{ matrix.project }}
+          context: ./application/${{ matrix.project }}
           file: application/${{ matrix.project }}/Dockerfile
           push: true
           tags: ${{ matrix.project }}
