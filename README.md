@@ -60,3 +60,8 @@ terraform init
 Erstellen/Anlegen der Ressourcen:
 
 terraform apply
+
+
+## Azure Policy
+
+Umstellen der Policy von West Europe (10% Konfiormität) zu North und West Europe (70% Konformität)
